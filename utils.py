@@ -7,7 +7,6 @@ def count_words_at_url(url):
     result = len(resp.text.split())
     say_hello()
     print(result)
-    time.sleep(2)
     return result
 
 
