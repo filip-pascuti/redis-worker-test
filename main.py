@@ -17,16 +17,20 @@ conn = redis.from_url(redis_url)
 
 q = Queue(connection=conn)
 
-job1 = q.enqueue(count_words_at_url, 'http://nvie.com')
-job2 = q.enqueue(count_words_at_url, 'http://nvie.com')
-job3 = q.enqueue(count_words_at_url, 'http://nvie.com')
-job4 = q.enqueue(count_words_at_url, 'http://nvie.com')
-job5 = q.enqueue(count_words_at_url, 'http://nvie.com')
 
-time.sleep(10)
+while True:
+    job1 = q.enqueue(count_words_at_url, 'http://nvie.com')
+    job2 = q.enqueue(count_words_at_url, 'http://nvie.com')
+    job3 = q.enqueue(count_words_at_url, 'http://nvie.com')
+    job4 = q.enqueue(count_words_at_url, 'http://nvie.com')
+    job5 = q.enqueue(count_words_at_url, 'http://nvie.com')
 
-print(job1.result)
-print(job2.result)
-print(job3.result)
-print(job4.result)
-print(job5.result)
+    time.sleep(10)
+
+    print(job1.result)
+    print(job2.result)
+    print(job3.result)
+    print(job4.result)
+    print(job5.result)
+
+    time.sleep(10)
